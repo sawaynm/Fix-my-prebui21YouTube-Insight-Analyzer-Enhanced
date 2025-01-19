@@ -39,7 +39,7 @@ def load_config():
 
 
 config = load_config()
-web_ui_port = config.get("web_ui_port", 5000)
+web_ui_port = config.get("web_ui_port", 8080)
 
 # Load data
 data = pd.read_csv("sentiment_data.csv")
@@ -96,7 +96,6 @@ def real_time():
                 comment["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
                 for comment in comments
             ]
-        )
         youtube_api.save_data_to_csv(
             sentiment_results, f"{video_id}_sentiment_analysis.csv"
         )
